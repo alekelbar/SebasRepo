@@ -11,7 +11,6 @@
   display: flex;
   justify-content: center;
 
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -30,13 +29,12 @@ a {
   overflow: hidden;
   font-weight: bold;
   display: inline-block;
-
 }
 
 a::before {
   position: absolute;
   transform: scale(0);
-  Transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 a:hover {
@@ -48,18 +46,12 @@ body {
   padding: 0;
   display: flex;
   place-items: center;
-
-
-
-
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
-
-
 
 button {
   border-radius: 8px;
@@ -98,7 +90,6 @@ button:focus-visible {
 }
 
 .navbar {
-
   height: 80px;
   display: flex;
   justify-content: center;
@@ -106,7 +97,6 @@ button:focus-visible {
   gap: 28px;
   padding-bottom: 2%;
   font-size: 25px;
-
 }
 
 .footer {
@@ -119,7 +109,6 @@ button:focus-visible {
   color: #1a1a1a;
   padding: 3px 3px;
   font-weight: bold;
-
 }
 
 .list-offers {
@@ -184,7 +173,6 @@ label {
   font-size: 20px;
 }
 
-
 input,
 textarea {
   width: 100%;
@@ -193,7 +181,6 @@ textarea {
   border-radius: 4px;
   font-size: 18px;
 }
-
 
 .btnPostCandidate {
   display: block;
@@ -260,7 +247,6 @@ button:hover {
   background-color: #333;
 }
 
-
 .tabla .btnView {
   background-color: rgb(59, 95, 214);
   cursor: pointer;
@@ -275,7 +261,6 @@ button:hover {
   background-color: rgb(165, 17, 17);
   cursor: pointer;
 }
-
 
 .custom-toast-container {
   font-size: 25px;
