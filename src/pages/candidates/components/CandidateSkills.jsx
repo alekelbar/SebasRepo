@@ -31,6 +31,8 @@ export const CandidateSkills = () => {
     return <div>Error</div>;
   }
 
+  if (!data || !dataSkill) return <div>Loading...</div>;
+
   const { data: candidate } = data;
   const { data: skills } = dataSkill;
 

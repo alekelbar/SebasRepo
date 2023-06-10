@@ -48,8 +48,6 @@ const ListCandidates = () => {
 
   if (isError) return <div>Error</div>;
 
-  console.log(data);
-
   return (
     <>
       <h2>List Candidates</h2>

@@ -1,9 +1,10 @@
 import React from "react";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import { getCandidateById } from "../../services/CandidateService";
 import styles from "./candidateDetails.module.css";
 import { SkillButton } from "./components/SkillButton";
 import { FormationForm } from "./components/FormationForm";
+import { FormationTable } from "./components/FormationTable";
 
 export const CandidateDetails = ({ id }) => {
   const { data, isLoading, isError, refetch } = useQuery({
@@ -43,9 +44,11 @@ export const CandidateDetails = ({ id }) => {
         })}
       </div>
       <div className={styles.form__formation}>
-        <FormationForm />
+        <FormationForm candidateId={candidate.id} />
       </div>
-      <div className={styles.list__formation}></div>
+      <div className={styles.list__formation}>
+        <FormationTable candidateId={candidate.id} />
+      </div>
     </div>
   );
 };

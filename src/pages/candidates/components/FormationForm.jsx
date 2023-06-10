@@ -1,11 +1,21 @@
 import React, { useState } from "react";
 import styles from "./formationForm.module.css";
+import { useMutation, useQueryClient } from "react-query";
+import { createFormation } from "../../../services/formationService";
 
-export const FormationForm = () => {
+export const FormationForm = ({ candidateId }) => {
+  const queryClient = useQueryClient();
+
   const [inputState, setInputState] = useState({
     title: "",
     description: "",
-    date: "",
+    date: "2023-01-01",
+  });
+
+  const createFormationMutation = useMutation({
+    mutationKey: ["createFormationMutation"],
+    mutationFn: createFormation,
+    onSettled: () => queryClient.invalidateQueries("getFormations"),
   });
 
   const handleChange = (e) => {
@@ -17,8 +27,17 @@ export const FormationForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Manejen acá lo que haran con el formulario...
-    console.log(inputState);
+
+    const values = Object.values(inputState);
+    // No se lleno el form
+    if (values.some((e) => e === "")) return;
+
+    const newFormation = {
+      ...inputState,
+      candidateId,
+    };
+
+    createFormationMutation.mutate(newFormation);
   };
 
   return (
