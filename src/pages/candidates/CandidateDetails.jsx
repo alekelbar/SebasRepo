@@ -1,10 +1,11 @@
 import React from "react";
 import { useQuery, useQueryClient } from "react-query";
 import { getCandidateById } from "../../services/CandidateService";
-import styles from "./candidateDetails.module.css";
 import { SkillButton } from "./components/SkillButton";
 import { FormationForm } from "./components/FormationForm";
 import { FormationTable } from "./components/FormationTable";
+
+import styles from "./candidateDetails.module.css";
 
 export const CandidateDetails = ({ id }) => {
   const { data, isLoading, isError, refetch } = useQuery({

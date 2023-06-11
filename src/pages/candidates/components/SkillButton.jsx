@@ -33,6 +33,7 @@ export const SkillButton = ({ skill, candidate, disable = false }) => {
     const hasSkill = candidate.skills.find(
       (userSkill) => userSkill.id == skill.id
     );
+
     if (hasSkill) {
       await deassingMutation.mutateAsync({
         candidatesId: candidate.id,

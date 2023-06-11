@@ -1,7 +1,7 @@
 import api from "../api/config";
 
 export const getFormations = async () => {
-  return await api.get("/Formations").then((result) => result.data);
+  return await api.get("/Formations");
 };
 
 export const getFormationById = async (id) => {

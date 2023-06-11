@@ -15,14 +15,17 @@ export const FormationTable = ({ candidateId }) => {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["getFormations"],
     queryFn: getFormations,
-    select: (formations) =>
-      formations.filter((forma) => forma.candidateId === candidateId),
-    onSettled: () => queryClient.invalidateQueries("getFormations"),
+    select: (formations) => {
+      return formations.data.filter(
+        (forma) => forma.candidateId === candidateId
+      );
+    },
   });
 
   const removeFormationMutation = useMutation({
     mutationKey: ["removeFormation"],
     mutationFn: removeFormation,
+    onSettled: () => queryClient.invalidateQueries("getFormations"),
   });
 
   const handleDeleteFormation = (id) => {
@@ -32,8 +35,6 @@ export const FormationTable = ({ candidateId }) => {
   if (isLoading) return <div>Loading...</div>;
 
   if (isError) return <div>Error</div>;
-
-  console.log(data);
 
   return (
     <table border="1" className="tabla">

@@ -48,6 +48,8 @@ const ListCandidates = () => {
 
   if (isError) return <div>Error</div>;
 
+  const candidates = data.data;
+
   return (
     <>
       <h2>List Candidates</h2>
@@ -59,16 +61,16 @@ const ListCandidates = () => {
             <td>Summary</td>
             <td>Actions</td>
           </tr>
-          {data.map((candidates) => (
-            <tr key={candidates.id}>
-              <td>{candidates.id}</td>
-              <td>{candidates.name}</td>
-              <td>{candidates.summary}</td>
+          {candidates.map((candidate) => (
+            <tr key={candidate.id}>
+              <td>{candidate.id}</td>
+              <td>{candidate.name}</td>
+              <td>{candidate.summary}</td>
               <td>
                 <button
                   className="btnView"
                   onClick={() =>
-                    navigate({ pathname: `/candidate/${candidates.id}` })
+                    navigate({ pathname: `/candidate/${candidate.id}` })
                   }
                 >
                   <FontAwesomeIcon icon={faEye} />
@@ -76,14 +78,14 @@ const ListCandidates = () => {
                 <button
                   className="btnSkills"
                   onClick={() =>
-                    navigate({ pathname: `/skills/${candidates.id}` })
+                    navigate({ pathname: `/skills/${candidate.id}` })
                   }
                 >
                   <FontAwesomeIcon icon={faAddressCard} />
                 </button>
                 <button
                   className="btnDelete"
-                  onClick={() => handleDeleteCandidate(candidates.id)}
+                  onClick={() => handleDeleteCandidate(candidate.id)}
                 >
                   <FontAwesomeIcon icon={faUserXmark} />
                 </button>

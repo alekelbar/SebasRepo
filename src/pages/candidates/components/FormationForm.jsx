@@ -18,9 +18,10 @@ export const FormationForm = ({ candidateId }) => {
     onSettled: () => queryClient.invalidateQueries("getFormations"),
   });
 
+  // manejo de formularios en react
   const handleChange = (e) => {
     setInputState({
-      ...inputState,
+      ...inputState, // spread operator...
       [e.target.name]: e.target.value,
     });
   };

@@ -1,8 +1,7 @@
 import api from "../api/config";
 
 export const getCandidates = async () => {
-  let data = await api.get("Candidates").then((result) => result.data);
-  return data;
+  return await api.get("/Candidates");
 };
 
 export const getCandidateById = async (id) => {
@@ -10,12 +9,12 @@ export const getCandidateById = async (id) => {
 };
 
 export const create = async (candidates) => {
-  return await api.post("Candidates", candidates);
+  return await api.post("/Candidates", candidates);
 };
 
 export const removeCandidate = async (id) => {
   try {
-    const response = await api.delete(`Candidates/${id}`);
+    const response = await api.delete(`/Candidates/${id}`);
     // Aquí puedes manejar la respuesta después de eliminar el candidato
     console.log(response.data);
   } catch (error) {
