@@ -24,6 +24,12 @@
   grid-area: formation;
 }
 
+.candidate__applications {
+  color: blue;
+  text-decoration: underline;
+  margin: 20px;
+}
+
 .candidate__name {
   color: black;
   font-size: 1.5rem;

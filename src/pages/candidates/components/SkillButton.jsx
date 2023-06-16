@@ -18,6 +18,9 @@ export const SkillButton = ({ skill, candidate, disable = false }) => {
   });
 
   const handleStyles = () => {
+    // si no existe candidato este componente solo es visual
+    if (!candidate) return styles.buttonSkill;
+
     const hasSkill = candidate.skills.find(
       (userSkill) => userSkill.id == skill.id
     );
@@ -28,11 +31,14 @@ export const SkillButton = ({ skill, candidate, disable = false }) => {
   };
 
   const handleAssign = async () => {
-    if (disable) return;
+    // si no existe candidato este componente solo es visual
+    if (!candidate) return;
 
     const hasSkill = candidate.skills.find(
       (userSkill) => userSkill.id == skill.id
     );
+
+    if (disable) return;
 
     if (hasSkill) {
       await deassingMutation.mutateAsync({

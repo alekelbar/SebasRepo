@@ -8,6 +8,14 @@ export const getCandidateById = async (id) => {
   return await api.get(`/Candidates/${id}`);
 };
 
+export const setOffer = async (apply) => {
+  return await api.post(`/Candidates/apply`, apply);
+};
+
+export const unSetOffer = async (apply) => {
+  return await api.post(`/Candidates/unapply`, apply);
+};
+
 export const create = async (candidates) => {
   return await api.post("/Candidates", candidates);
 };

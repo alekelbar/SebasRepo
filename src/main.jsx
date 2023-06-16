@@ -9,6 +9,7 @@ import AddCandidate from "./pages/candidates/components/AddCandidate";
 import ListOffers from "./pages/offers/ListOffers";
 import { Candidate } from "./pages/candidates/components/Candidate";
 import { CandidateSkills } from "./pages/candidates/components/CandidateSkills";
+import { CandidateOffers } from "./pages/candidates/CandidateOffers";
 
 // const CounterContext = React.createContext(0);
 
@@ -25,6 +26,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           {/* Fuente: https://reactrouter.com/en/main/hooks/use-params */}
           <Route path="/candidate/:id" element={<Candidate />} />
           <Route path="/skills/:id" element={<CandidateSkills />} />
+          <Route path="/candidateoffers/:id" element={<CandidateOffers />} />
 
           <Route path="/*" element={<Home />} />
           {/* Manejar la ruta por defecto.. */}
